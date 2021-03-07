@@ -17,7 +17,7 @@ class BotUserController extends Controller
     }
 
     public function byID ( $id ) {
-        $bot_user = BotUsers::find($id);
+        $bot_user = BotUsers::where('id', $id)->get();
 
         if ( is_null($bot_user) ) {
             return response()->json([
